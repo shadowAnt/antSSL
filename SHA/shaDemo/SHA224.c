@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <openssl/sha.h>
 
+#define READ_SIZE 32768
+
 static int is_filename(char *name)
 {
     if (access(name, F_OK) != -1)
@@ -13,7 +15,6 @@ static int is_filename(char *name)
         return 0;
 }
 
-#define READ_SIZE 32768
 int sha224_file (char *path, unsigned char *digest)
 {
     char hash[SHA224_DIGEST_LENGTH];
