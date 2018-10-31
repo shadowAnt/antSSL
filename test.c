@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXSIZE 999999999
-
 #include <sys/stat.h>
 //get file size
 int file_size(char *filename)
@@ -38,8 +36,15 @@ void initOutname(char *filename)
 int main(int argc, char *argv[])
 {
     char *buffer = NULL;
-    char filename[100] = "1.txt";
-    char txt[] = ".txt";
+    char filename[100];
+    if(argc == 1){
+    	strcpy(filename, "1.txt");
+    }else if(argc == 2){
+    	strcpy(filename, argv[1]);
+    }else {
+    	printf("parameter ERROR!\n");
+    	return -1;
+    }
     int len = file_size(filename);
 
     FILE *file = fopen(filename, "rb");
@@ -52,7 +57,7 @@ int main(int argc, char *argv[])
     long llen = file_size2(file);
 
     //len bytes
-    buffer = malloc(len);
+    buffer = malloc(llen);
     // printf("%ld\n", sizeof(char));
     if(NULL != buffer)
     {
@@ -60,7 +65,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        printf("the file is too large to load!\n");
+        printf("%s the file is too large to load!\n", __func__);
         return -1;
     }
     /* 将文件拷贝到buffer中 */
@@ -68,6 +73,7 @@ int main(int argc, char *argv[])
 
     if (result != llen)
     {
+    	printf("fread ERROR\n");
         return -1;
     }
     printf("%ld\n", result);
