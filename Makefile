@@ -1,0 +1,9 @@
+CC=gcc
+SOURCE=test.c
+DEPS=
+EXECUTABLE=test
+LDFLAGS=
+
+
+target:
+	$(CC) $(SOURCE) -o $(EXECUTABLE) $(CFLAG) $(LDFLAGS)
