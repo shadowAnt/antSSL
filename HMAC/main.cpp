@@ -66,7 +66,6 @@ int main(int argc, char *argv[])
     string data = dat;
     char key[] = "012345678";
 
-
     unsigned char *mac = NULL;
     unsigned int mac_length = 0;
 
