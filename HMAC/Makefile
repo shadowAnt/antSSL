@@ -1,5 +1,5 @@
-CC=g++
-SOURCE=main.cpp hmac.cpp
+CC=gcc
+SOURCE=main.c hmac.c
 DEPS=hmac.h
 EXECUTABLE=hmac
 LDFLAGS=-lcrypto

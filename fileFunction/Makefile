@@ -1,5 +1,5 @@
 CC=gcc
-SOURCE=test.c
+SOURCE=test2.c
 DEPS=
 EXECUTABLE=test
 LDFLAGS=

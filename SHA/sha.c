@@ -1,7 +1,8 @@
 #include "sha.h"
 
 /**
- * the name is a filename or not?
+ * t
+he name is a filename or not?
  * @param  name [description]
  * @return      [description]
  */

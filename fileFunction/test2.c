@@ -73,15 +73,19 @@ int main(int argc, char *argv[])
     }
     /* 将文件拷贝到buffer中 */
     int bytes_read = 0;
-    int onceSize = MAXSIZE;
-    int len = file_size2(file);
-    for(; len > 0; len -= onceSize)
-    {
-        if(len < MAXSIZE) onceSize = len;
 
-        fread (buffer, 1, onceSize, file);
-        fwrite(buffer, 1, onceSize, fileOut);
-    }
+    // int onceSize = MAXSIZE;
+    // int len = file_size2(file);
+    // for(; len > 0; len -= onceSize)
+    // {
+    //     if(len < MAXSIZE) onceSize = len;
+
+    //     fread (buffer, 1, onceSize, file);
+    //     fwrite(buffer, 1, onceSize, fileOut);
+    // }
+
+    while(bytes_read=fread (buffer, 1, MAXSIZE, file))
+    	fwrite(buffer, 1, bytes_read, fileOut);
 
     fclose (fileOut);
     fclose (file);
